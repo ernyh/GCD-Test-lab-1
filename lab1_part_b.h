@@ -4,7 +4,9 @@
 #include <time.h>
 
 
-void testAverageTime(int , int , int );
+double testAverageTimeIterative(int , int , int );
+double testAverageTimeRecursive(int , int , int );
+
 //fix me void sendToFile();
 int recursiveGCD (int , int);
 int iterativeGCD (int , int);

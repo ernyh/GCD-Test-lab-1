@@ -2,10 +2,11 @@
 #include <time.h>
 #include <stdio.h>
 
-void testAverageTime(int trialRuns, int number1, int number2){
+double testAverageTimeRecursive(int trialRuns, int number1, int number2){
 clock_t timer;
 double time_taken = 0;
 int i = 0;
+
 
 for(i=0; i < trialRuns; i++){
 timer = clock();
@@ -15,9 +16,15 @@ timer = clock() - timer;
 //to seconds
 time_taken += ((double)timer) / CLOCKS_PER_SEC;
 }
-printf("Recursive version: %lf\n", time_taken);
+return time_taken / trialRuns;
+}
 
-time_taken = 0;
+
+double testAverageTimeIterative(int trialRuns, int number1, int number2){
+clock_t timer;
+double time_taken = 0;
+int i = 0;
+
 for(i=0; i < trialRuns; i++){
 timer = clock();
 // insert function to be timed here
@@ -26,25 +33,28 @@ timer = clock() - timer;
 //to seconds
 time_taken += ((double)timer) / CLOCKS_PER_SEC;
 }
-printf("Iterative version: %lf\n", time_taken);
+return time_taken / trialRuns;
+}
 
+/*fix me 
+
+void sendToFile(){
+  
 }
 
 
+*/
 
-//fix me void sendToFile();
-
-//not the best one 
+//not the best GCD algorithm there are others!
+//base case is when x == y
 int recursiveGCD (int x, int y){
 if(x==y){
   return x;
 }
-else if (x > y){
+ if (x > y){
 return recursiveGCD(x - y, y );
 }
-else{
 return recursiveGCD(x, y - x );
-}
 }
 
 //
